@@ -2,6 +2,7 @@ from flask import Flask, session, render_template, redirect, request, url_for
 import pandas as pd
 import matplotlib.pyplot as plt
 from ast import literal_eval
+from PyCalculotron.components.calculation.fibonacci import fibonacci
 
 app = Flask(__name__)
 
@@ -40,6 +41,16 @@ def equations():
         data={}
     )
 
+
+@app.route('/calculation/<operation>/<params>')
+def calculation(operation, params):
+    if operation == "fibonacci":
+        assert params > 0
+        result = fibonacci(params)
+
+    return render_template("calculation.html", data={
+        "result":result
+    })
 
 if __name__ == "__main__":
     app.run(debug=True)

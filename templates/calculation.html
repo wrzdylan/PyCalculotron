@@ -1,0 +1,11 @@
+{% extends 'base.html' %} 
+
+{% block header %}
+<h1>Hello Flask</h1>
+{% endblock %} 
+
+{% block content %}
+{% if data|length > 0 %}
+<p>{{data.result}}</p>
+{% endif %}
+{% endblock %}

@@ -1,3 +1,5 @@
 /env
 launch.sh
 /__pycache__
+/tests/__pycache__
+/.pytest_cache
