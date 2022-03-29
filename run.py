@@ -1,4 +1,4 @@
-from flask import Flask, session, render_template, redirect, request, url_for
+from flask import Flask, render_template
 import pandas as pd
 import matplotlib.pyplot as plt
 from ast import literal_eval
@@ -15,12 +15,6 @@ def home():
         data={'title' : 'index'}
     )
 
-# @app.route('/theoremes')
-# def theoremes():
-#     return render_template(
-#         'theoremes.html',
-#         data={}
-#     )
 
 @app.route('/conversion')
 def conversion():
@@ -29,6 +23,7 @@ def conversion():
         data={}
     )
 
+
 @app.route('/calculatrice')
 def calc():
     return render_template(
@@ -36,13 +31,13 @@ def calc():
         data={}
     )
 
+
 @app.route('/equations')
 def equations():
     return render_template(
         'equations.html',
         data={}
     )
-
 
 
 @app.route('/calculation/<operation>/<params>')
