@@ -1,4 +1,5 @@
-from run import index
+from PyCalculotron.run import index
+
 
 def test_index():
     assert index() == "Hello world !"
