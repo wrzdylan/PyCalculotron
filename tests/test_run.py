@@ -1,8 +1,8 @@
-from PyCalculotron.run import index, calculation
+from PyCalculotron.run import home, calculation
 
 
 def test_index():
-    assert index() == "Hello world !"
+    assert home() == "Hello world !"
 
 
 def test_calculation():
