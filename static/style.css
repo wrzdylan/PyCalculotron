@@ -172,7 +172,11 @@
   }
 
   .form-group-calculotron input {
+    display: none;
+    width: 80%;
+    margin: auto;
     margin-top: 20px;
+
   }
 
   .result-calculotron {

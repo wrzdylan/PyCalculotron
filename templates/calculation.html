@@ -10,7 +10,7 @@
 
 <form action="{{url_for('calculotron')}}" method="post">
 
-<div class="form-group">
+<div class="form-group" id="operators">
     {% for item in data["operators"] %}
         <input class="form-check-input m-20" type="radio" name="operator" id="{{item.operator}}" value="{{item.operator}}">
         <label class="form-check-label" for="{{item.operator}}">
@@ -19,10 +19,10 @@
     {% endfor %}
 </div>
 
-<div class="form-group-calculotron">
+<div class="form-group-calculotron" id="params">
 {% for item in data["operators"] %}
     {% for param in item["params"] %}
-    <input type="text" class="form-control" placeholder="{{param}}" name="{{item.operator}}-{{param}}">
+    <input type="text" class="form-control {{item.operator}}" placeholder="{{param}}" name="{{item.operator}}-{{param}}" >
     {% endfor %}
 {% endfor %}
 </div>
