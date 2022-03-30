@@ -1,11 +1,39 @@
 {% extends 'base.html' %} 
 
 {% block header %}
-<h1>Hello Flask</h1>
+<h1>Théorèmes et Lois</h1>
 {% endblock %} 
 
 {% block content %}
 {% if data|length > 0 %}
-<p>{{data.result}}</p>
+<h2>Choisissez l'opération de votre choix :</h2>
+
+<form action="{{url_for('calculotron')}}" method="post">
+
+<div class="form-group" id="operators">
+    {% for item in data["operators"] %}
+        <input class="form-check-input m-20" type="radio" name="operator" id="{{item.operator}}" value="{{item.operator}}">
+        <label class="form-check-label" for="{{item.operator}}">
+            {{item['operator']}}
+        </label>
+    {% endfor %}
+</div>
+
+<div class="form-group-calculotron" id="params">
+{% for item in data["operators"] %}
+    {% for param in item["params"] %}
+    <input type="text" class="form-control {{item.operator}}" placeholder="{{param}}" name="{{item.operator}}-{{param}}" >
+    {% endfor %}
+{% endfor %}
+</div>
+
+<button type="submit" class="btn btn-primary btn-calculotron">Faire l'opération</button>
+
+</form>
+
+{% if data.result != None %}
+<textarea class="form-control result-calculotron" disabled>{{data.result}}</textarea>
+{% endif %}
+
 {% endif %}
 {% endblock %}

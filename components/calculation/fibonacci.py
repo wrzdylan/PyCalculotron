@@ -1,6 +1,6 @@
 def fibonacci(n):
     if n < 0:
-        print("Incorrect input")
+        return "Paramètre incorrect, un entier positif est attendu"
     elif n == 0:
         return 0
     elif n == 1 or n == 2:

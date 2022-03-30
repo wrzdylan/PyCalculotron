@@ -153,6 +153,36 @@
     background-color: white;
   }
 
+  .form-group {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  .form-group input {
+    margin-right: 5px;
+  }
+  .form-group label {
+    margin-bottom: 20px;
+    margin-right: 20px;
+    text-transform: capitalize;
+  }
+
+  .btn-calculotron {
+    margin: 20px 0;
+  }
+
+  .form-group-calculotron input {
+    display: none;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+
+  }
+
+  .result-calculotron {
+    resize: none;
+  }
+
 
   @keyframes rotate
   {
