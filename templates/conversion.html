@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="title">Calculatrice de conversion des unités</div>
+{% endblock %}
+
+{% block content %}
+    <form class="calc-form">
+        <label for="type-selector" class="form-label"> Sélectionnez le type d'unités à convertir</label>
+        <select class="type-selector" id="type-selector">
+            <option value="null" disabled selected hidden> </option>
+            <option value="distance">Distance</option>
+            <option value="energie">Energie</option>
+            <option value="masse">Masse</option>
+            <option value="stockage">Stockage</option>
+            <option value="temperature">Temperature</option>
+            <option value="vitesse">Vitesse</option>
+            <option value="volume">Volume</option>
+        </select>
+        <div id="units-panel">
+            <div id="units-origin">
+                <input class="units-value" id="units-input" />
+                <select class="units-selector" id="base-unit"></select>
+            </div>
+            <p>=</p>
+            <div id="units-target">
+                <input class="units-value" id="units-res" disabled/>
+                <select class="units-selector" id="target-unit"></select>
+            </div>
+        </div>
+    </form>
+{% endblock %}
