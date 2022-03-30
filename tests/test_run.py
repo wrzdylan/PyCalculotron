@@ -6,4 +6,4 @@ def test_index():
 
 
 def test_calculation():
-    assert calculation("fibonacci", 9) == {"result":34}
+    assert calculation("fibonacci", 9) == {"result": 34}

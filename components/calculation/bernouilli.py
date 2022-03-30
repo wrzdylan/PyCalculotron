@@ -17,5 +17,5 @@ def experience(n, p=.5, target=1):
     return count
 
 
-def print_bernouilli_result_array(number_range, n, p=.5, target=1):
+def bernouilli_result_array(number_range, n, p=.5, target=1):
     return [experience(n, p, target) for _ in range(number_range)]
