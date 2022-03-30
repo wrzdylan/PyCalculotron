@@ -160,6 +160,11 @@ input[type="checkbox"]
   border: 1px solid #000;
   background-color: white;
 }
+.units-value
+{
+  text-align: right;
+  padding: 0 5px;
+}
 .form-label
 {
   margin-right: 20px;
