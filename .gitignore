@@ -2,3 +2,5 @@
 launch.sh
 __pycache__/
 /.pytest_cache
+
+start.bat

@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from ast import literal_eval
 from PyCalculotron.components.calculation.fibonacci import fibonacci
-from PyCalculotron.components.calculation.bernouilli import experience as exp, print_bernouilli_result_array as bern
+from PyCalculotron.components.calculation.bernouilli import experience as exp, bernouilli_result_array as bern
 
 app = Flask(__name__)
 
@@ -12,7 +12,7 @@ app = Flask(__name__)
 def home():
     return render_template(
         'index.html',
-        data={'title' : 'index'}
+        data={'title': 'index'}
     )
 
 
