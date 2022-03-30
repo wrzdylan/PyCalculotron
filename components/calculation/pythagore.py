@@ -12,5 +12,5 @@ def pythagore(a, b):
     """
     side_a = a
     side_b = b
-    result = math.sqrt(side_a ** 2 + side_b ** 2)
+    result = round(math.sqrt(side_a ** 2 + side_b ** 2), 4)
     return result
