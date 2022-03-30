@@ -1,7 +1,4 @@
-from flask import Flask, render_template
-import pandas as pd
-import matplotlib.pyplot as plt
-from ast import literal_eval, operator
+from flask import Flask, render_template, request
 from PyCalculotron.components.calculation.fibonacci import fibonacci
 from PyCalculotron.components.calculation.bernouilli import experience as exp, print_bernouilli_result_array as bern
 
@@ -40,40 +37,38 @@ def equations():
     )
 
 
-@app.route('/calculation')
-def calculation_page():
-    return render_template(
-        'calculation.html',
-        data={
-            'operators': [{
-                'operator': 'fibonacci',
-                'params': ['x']
-            },
-            {
-                'operator': 'bernouilli',
-                'params': ['r', 'n']
-            },
-            {
-                'operator': 'pythagore',
-                'params': ['a', 'b']
-            }]
-        }
-    )
+@app.route('/calculotron', methods=["GET", "POST"])
+def calculotron():
+    if request.method == "GET":
+        result = None
+    elif request.method == "POST":
+        operator = request.form['operator']
 
+        params = [int(request.form[name]) for name in request.form if name.split("-")[0] == operator]
 
-@app.route('/calculation/<operation>/<params>')
-def calculation(operation, params):
-    if operation == "fibonacci":
-        assert params > 0
-        result = fibonacci(params)
-    elif operation == "bernouilli":
-        assert "r" in params and "n" in params and params.r > 0 and params.n > 0
-        experience = exp(params.n)
-        bernouilli_array = bern(params.r, params.n)
-        result = {"experience": experience, "bernouilli_array": bernouilli_array}
+        if operator == "fibonacci":
+            assert params[0] > 0
+            result = fibonacci(params[0])
+        elif operator == "bernouilli":
+            assert len(params) == 2 and params[0] > 0 and params[1] > 0
+            experience = exp(params[1])
+            bernouilli_array = bern(params[0], params[1])
+            result = {"experience": experience, "bernouilli_array": bernouilli_array}
 
     return render_template("calculation.html", data={
-        "result": result
+        'operators': [{
+            'operator': 'fibonacci',
+            'params': ['x']
+        },
+        {
+            'operator': 'bernouilli',
+            'params': ['r', 'n']
+        },
+        {
+            'operator': 'pythagore',
+            'params': ['a', 'b']
+        }],
+        "result": result,
     })
 
 

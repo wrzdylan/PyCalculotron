@@ -8,25 +8,31 @@
 {% if data|length > 0 %}
 <h2>Choisissez l'opération de votre choix :</h2>
 
-<form>
+<form action="{{url_for('calculotron')}}" method="post">
 
-{% for item in data["operators"] %}
-        <input class="form-check-input" type="radio" name="operator" id="{{item.operator}}">
+<div class="form-group">
+    {% for item in data["operators"] %}
+        <input class="form-check-input m-20" type="radio" name="operator" id="{{item.operator}}" value="{{item.operator}}">
         <label class="form-check-label" for="{{item.operator}}">
             {{item['operator']}}
         </label>
+    {% endfor %}
+</div>
 
-        {% for param in item["params"] %}
-        <input type="text" class="form-control" placeholder="{{param}}">
-        {% endfor %}
+<div class="form-group-calculotron">
+{% for item in data["operators"] %}
+    {% for param in item["params"] %}
+    <input type="text" class="form-control" placeholder="{{param}}" name="{{item.operator}}-{{param}}">
+    {% endfor %}
 {% endfor %}
+</div>
 
-<button type="submit" class="btn btn-primary">Faire l'opération</button>
+<button type="submit" class="btn btn-primary btn-calculotron">Faire l'opération</button>
 
 </form>
 
-{% if data.result|length > 0 %}
-<textarea class="form-control">{{data.result}}</textarea>
+{% if data.result != None %}
+<textarea class="form-control result-calculotron" disabled>{{data.result}}</textarea>
 {% endif %}
 
 {% endif %}
