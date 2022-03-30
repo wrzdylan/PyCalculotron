@@ -1,5 +1,17 @@
-{% extends 'base.html' %} {% block header %}
-<h1>Hello Flask</h1>
-{% endblock %} {% block content %}
-<ul class="users"></ul>
+{% extends 'base.html' %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div class="title">PyCalculotron
+<p>La réponse à tous tes problèmes</p>
+</div>
+<div>
+    <p id="text-index">(au moins ceux de maths)</p>
+</div>
+{% endblock %}
+
+{% block footer %}
+<p>Indice : clique sur le menu en haute à droite pour accèder à notre univers de solutions</p>
 {% endblock %}
