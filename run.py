@@ -3,7 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from ast import literal_eval
 from PyCalculotron.components.calculation.fibonacci import fibonacci
-from PyCalculotron.components.calculation.bernouilli import experience as exp, bernouilli_result_array as bern
+from PyCalculotron.components.calculation.pythagore import pythagore
+from PyCalculotron.components.calculation.bernouilli import experience as exp, print_bernouilli_result_array as bern
 
 app = Flask(__name__)
 
@@ -50,6 +51,9 @@ def calculation(operation, params):
         experience = exp(params.n)
         bernouilli_array = bern(params.r, params.n)
         result = {"experience": experience, "bernouilli_array": bernouilli_array}
+    elif operation == "pythagore":
+        assert "a" in params and "b" in params and params.a > 0 and params.b > 0
+        result = pythagore(params.a, params.b)
 
     return render_template("calculation.html", data={
         "result": result
