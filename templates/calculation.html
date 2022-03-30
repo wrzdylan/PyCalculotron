@@ -1,11 +1,33 @@
 {% extends 'base.html' %} 
 
 {% block header %}
-<h1>Hello Flask</h1>
+<h1>Théorèmes et Lois</h1>
 {% endblock %} 
 
 {% block content %}
 {% if data|length > 0 %}
-<p>{{data.result}}</p>
+<h2>Choisissez l'opération de votre choix :</h2>
+
+<form>
+
+{% for item in data["operators"] %}
+        <input class="form-check-input" type="radio" name="operator" id="{{item.operator}}">
+        <label class="form-check-label" for="{{item.operator}}">
+            {{item['operator']}}
+        </label>
+
+        {% for param in item["params"] %}
+        <input type="text" class="form-control" placeholder="{{param}}">
+        {% endfor %}
+{% endfor %}
+
+<button type="submit" class="btn btn-primary">Faire l'opération</button>
+
+</form>
+
+{% if data.result|length > 0 %}
+<textarea class="form-control">{{data.result}}</textarea>
+{% endif %}
+
 {% endif %}
 {% endblock %}

@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 import pandas as pd
 import matplotlib.pyplot as plt
-from ast import literal_eval
+from ast import literal_eval, operator
 from PyCalculotron.components.calculation.fibonacci import fibonacci
 from PyCalculotron.components.calculation.bernouilli import experience as exp, print_bernouilli_result_array as bern
 
@@ -37,6 +37,27 @@ def equations():
     return render_template(
         'equations.html',
         data={}
+    )
+
+
+@app.route('/calculation')
+def calculation_page():
+    return render_template(
+        'calculation.html',
+        data={
+            'operators': [{
+                'operator': 'fibonacci',
+                'params': ['x']
+            },
+            {
+                'operator': 'bernouilli',
+                'params': ['r', 'n']
+            },
+            {
+                'operator': 'pythagore',
+                'params': ['a', 'b']
+            }]
+        }
     )
 
 
