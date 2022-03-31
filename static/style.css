@@ -40,9 +40,6 @@
   font-size: 20px;
   color: #fff;
   cursor: pointer;
-  /*background: linear-gradient(-135deg, #c850c0, #4158d0);*/
-  /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
-  /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%); */
   background: #000;
   transition: all 0.3s ease-in-out;
 }
@@ -52,7 +49,7 @@
 }
 #active:checked ~ .menu-btn i:before
 {
-  content: "\f00d";
+  content: "\f0c9";
 }
 .wrapper ul
 {
