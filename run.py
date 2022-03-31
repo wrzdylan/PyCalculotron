@@ -62,7 +62,7 @@ def calculotron():
     return render_template("calculation.html", data={
         'operators': [{
             'operator': 'fibonacci',
-            'params': ['x']
+            'params': ['Valeur à la position donnée']
         },
         {
             'operator': 'bernouilli',
@@ -70,7 +70,7 @@ def calculotron():
         },
         {
             'operator': 'pythagore',
-            'params': ['a', 'b']
+            'params': ['1er côté', '2nd côté']
         }],
         "result": result,
     })

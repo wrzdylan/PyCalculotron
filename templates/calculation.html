@@ -32,7 +32,13 @@
 </form>
 
 {% if data.result != None %}
-<textarea class="form-control result-calculotron" disabled>{{data.result}}</textarea>
+    {% if data.result is mapping %}
+        {% for key, value in data.result.items() %}
+            <p class="form-control">{{key}} : {{value}}</p>
+        {% endfor %}
+    {% else %}
+        <p class="form-control">{{data.result}}</p>
+    {% endif %}
 {% endif %}
 
 {% endif %}
