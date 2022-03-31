@@ -14,8 +14,8 @@ const METRE = "metre";
 const DECIMETRE = "decimetre";
 const CENTIMETRE = "centimetre";
 const MILIMETRE = "millimetre";
-const MILLE = "mille";
-const INCH = "inch";
+const MILLE = "mile";
+const INCH = "pouce";
 const PIED = "pied";
 const YARD = "yard";
 const MILLE_MARIN = "mille_marin";
@@ -33,23 +33,12 @@ const FT_LB = "pied_livre"
 const EV = "electronvolt"
 
 // MASSE
-const TONNE = "tonne";
-const KG = "kilogramme";
-const HG = "hectogramme";
-const GRAMME = "gramme";
-const DG = "decigramme";
-const CG = "centigramme";
-const MG = "milligramme";
-const MMG = "microgramme";
-const CARAT = "carat";
-const GRAIN = "grain";
-const OZ = "ounce";
-const LB = "pound";
-const QL = "quintal_long";
-const QC = "quintal_court";
-const TL = "tonne_longue";
-const TC = "tonne_courte";
-const STONE = "stone";
+const TONNE = "t";
+const KG = "kg";
+const GRAMME = "g";
+const MG = "mg";
+const OZ = "oz";
+const LB = "lb";
 
 // STOCKAGE
 const BIT = "bit"
@@ -160,7 +149,24 @@ function displayUnits(option) {
 }
 
 function convert(origin, target, quantity) {
-    console.log("Convertir " + quantity + " " + origin + " vers " + target + ".");
+    // select-type = $("#type-selector").val()
+    const myData = JSON.stringify({
+                'select-type' : $("#type-selector").val(),
+                'units-input': quantity,
+                'type-in' : origin,
+                'type-out' : target
+            })
+    $.ajax({
+        type : "POST",
+        url : '/conversion',
+        dataType: "json",
+        data: myData,
+        contentType: 'application/json;charset=UTF-8',
+        success: function (data) {
+            console.log(data)
+            $("#units-res").val(data);
+        }
+    });
 }
 
 $( function() {
@@ -174,16 +180,16 @@ $( function() {
             $('#units-res').val(this.value);
         }
         else {
-            $('#units-res').val(convert($('#base-unit').val(), $('#target-unit').val(), this.value));
+            $('#units-res').val(convert($('#base-unit').val(), $('#target-unit').val(), parseFloat(this.value)));
         }
     });
 
     $("#base-unit").on("change", function () {
-        $('#units-res').val(convert($('#base-unit').val(), $('#target-unit').val(), $("#units-input").val()));
+        $('#units-res').val(convert($('#base-unit').val(), $('#target-unit').val(), parseFloat($("#units-input").val())));
     });
 
     $("#target-unit").on("change", function () {
-        $('#units-res').val(convert($('#base-unit').val(), $('#target-unit').val(), $("#units-input").val()));
+        $('#units-res').val(convert($('#base-unit').val(), $('#target-unit').val(), parseFloat($("#units-input").val())));
     });
 
 });

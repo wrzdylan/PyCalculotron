@@ -2,6 +2,10 @@ from flask import Flask, render_template, request
 from PyCalculotron.components.calculation.fibonacci import fibonacci
 from PyCalculotron.components.calculation.pythagore import pythagore
 from PyCalculotron.components.calculation.bernouilli import experience as exp, bernouilli_result_array as bern
+from PyCalculotron.components.conversion.conversion_dist import conversion_dist
+from PyCalculotron.components.conversion.conversion_mass import conversion_mass
+from PyCalculotron.components.conversion.conversion_temp import conversion_temp
+
 
 app = Flask(__name__)
 
@@ -16,15 +20,27 @@ def home():
 
 @app.route('/conversion', methods=["GET", "POST"])
 def conversion():
-    if request.method == "GET":
-        result = None
-    elif request.method == "POST":
-        conv_type_in = request.form['base_unit']
+    if request.method == 'GET':
+        return render_template("conversion.html", data={})
 
-    return render_template(
-        'conversion.html',
-        data={"result": result}
-    )
+    elif request.method == 'POST':
+        data = request.get_json()    
+
+        selected_type = data['select-type']
+        input = data['units-input']
+        conv_type_in = data['type-in']
+        conv_type_out = data['type-out']
+
+        print("type", type(input))
+
+        if selected_type == "masse":
+            result = conversion_mass(input, conv_type_in, conv_type_out)
+        elif selected_type == "temperature":
+            result = conversion_temp(input, conv_type_in, conv_type_out)
+        elif selected_type == "distance":
+            result = conversion_dist(input, conv_type_in, conv_type_out)
+
+    return str(result)
 
 
 @app.route('/calculatrice')

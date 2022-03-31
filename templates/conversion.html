@@ -5,9 +5,9 @@
 {% endblock %}
 
 {% block content %}
-    <form action="{{url_for('conversion')}}" class="calc-form" method="post">
+    <form class="calc-form">
         <label for="type-selector" class="form-label"> Sélectionnez le type d'unités à convertir</label>
-        <select class="type-selector" id="type-selector" name="type-selector">
+        <select class="type-selector" id="type-selector">
             <option value="null" disabled selected hidden> </option>
             <option value="distance">Distance</option>
             <option value="energie">Energie</option>
