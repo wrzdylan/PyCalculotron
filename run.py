@@ -5,6 +5,7 @@ from PyCalculotron.components.calculation.bernouilli import experience as exp, b
 from PyCalculotron.components.conversion.conversion_dist import conversion_dist
 from PyCalculotron.components.conversion.conversion_mass import conversion_mass
 from PyCalculotron.components.conversion.conversion_temp import conversion_temp
+from PyCalculotron.components.conversion.conversion_digit import conversion_digit
 
 
 app = Flask(__name__)
@@ -31,14 +32,14 @@ def conversion():
         conv_type_in = data['type-in']
         conv_type_out = data['type-out']
 
-        print("type", type(input))
-
         if selected_type == "masse":
             result = conversion_mass(input, conv_type_in, conv_type_out)
         elif selected_type == "temperature":
             result = conversion_temp(input, conv_type_in, conv_type_out)
         elif selected_type == "distance":
             result = conversion_dist(input, conv_type_in, conv_type_out)
+        elif selected_type == "stockage":
+            result = conversion_digit(input, conv_type_in, conv_type_out)
 
     return str(result)
 

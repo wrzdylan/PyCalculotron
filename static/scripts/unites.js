@@ -42,12 +42,11 @@ const LB = "lb";
 
 // STOCKAGE
 const BIT = "bit"
-const OCTET = "octet"
-const KO = "kilooctet"
-const MO = "megaoctet"
-const GO = "gigaoctet"
-const TO = "teraoctet"
-const MIB = "mebioctet "
+const OCTET = "o"
+const KO = "ko"
+const MO = "mo"
+const GO = "go"
+const TO = "to"
 
 // TEMPERATURE
 const CELSIUS = "celsius";
