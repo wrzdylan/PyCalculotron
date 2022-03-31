@@ -14,11 +14,16 @@ def home():
     )
 
 
-@app.route('/conversion')
+@app.route('/conversion', methods=["GET", "POST"])
 def conversion():
+    if request.method == "GET":
+        result = None
+    elif request.method == "POST":
+        conv_type_in = request.form['base_unit']
+
     return render_template(
         'conversion.html',
-        data={}
+        data={"result": result}
     )
 
 
