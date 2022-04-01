@@ -6,7 +6,7 @@
 
 {% block content %}
 {% if data|length > 0 %}
-<h2>Choisissez l'opération de votre choix :</h2>
+<h2 class="text-success">Choisissez l'opération de votre choix :</h2>
 
 <form action="{{url_for('calculotron')}}" method="post">
 
@@ -27,14 +27,14 @@
 {% endfor %}
 </div>
 
-<button type="submit" class="btn btn-primary btn-calculotron">Faire l'opération</button>
+<button type="submit" class="btn btn-dark btn-calculotron">Calculer</button>
 
 </form>
 
 {% if data.result != None %}
     {% if data.result is mapping %}
         {% for key, value in data.result.items() %}
-            <p class="form-control">{{value}}</p>
+            <p class="form-control">{{key}} : {{value}}</p>
         {% endfor %}
     {% else %}
         <p class="form-control">{{data.result}}</p>

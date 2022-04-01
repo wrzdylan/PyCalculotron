@@ -80,15 +80,15 @@ def calculotron():
 
         if operator == "fibonacci":
             assert params[0] > 0
-            result = fibonacci(params[0])
+            result = {f"Valeur à la position {params[0]}": fibonacci(params[0])}
         elif operator == "bernouilli":
             assert len(params) == 2 and params[0] > 0 and params[1] > 0
-            experience = exp(params[1])
-            bernouilli_array = bern(params[0], params[1])
-            result = {"experience": experience, "bernouilli_array": bernouilli_array}
+            experience = exp(params[0])
+            bernouilli_array = bern(params[1], params[0])
+            result = {"Nombre de face": f"{experience} sur {params[0]} lancers de pièces.", f"Nombre de face à chaque expérience de {params[0]} lancers de pièces": ', '.join(str(e) for e in bernouilli_array)}
         elif operator == "pythagore":
             assert len(params) == 2 and params[0] > 0 and params[1] > 0
-            result = pythagore(params[0], params[1])
+            result = {"3ème côté": pythagore(params[0], params[1])}
 
     return render_template("calculation.html", data={
         'operators': [{
@@ -97,7 +97,7 @@ def calculotron():
         },
         {
             'operator': 'bernouilli',
-            'params': ['r', 'n']
+            'params': ['Nombre de lancers de pièces', 'Nombre de fois où on répète l\'expérience']
         },
         {
             'operator': 'pythagore',

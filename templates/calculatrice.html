@@ -5,41 +5,26 @@
 {% endblock %}
 
 {% block content %}
-<table>
-    <tr>
-        <th colspan="4">
-            <label>0</label>
-        </th>
-    </tr>
-    <tr>
-        <th><button class="calc-button btn btn-danger" id="calc-button-ce">CE</button></th>
-        <th><button class="calc-button btn btn-danger" id="calc-button-c">C</button></th>
-        <th><button class="calc-button btn btn-warning" id="calc-button-per">%</button></th>
-        <th><button class="calc-button btn btn-warning" id="calc-button-div">/</button></th>
-    </tr>
-    <tr>
-        <th><button class="calc-button btn btn-info" id="calc-button-7">7</button></th>
-        <th><button class="calc-button btn btn-info" id="calc-button-8">8</button></th>
-        <th><button class="calc-button btn btn-info" id="calc-button-9">9</button></th>
-        <th><button class="calc-button btn btn-warning" id="calc-button-mult">*</button></th>
-    </tr>
-    <tr>
-        <th><button class="calc-button btn btn-info" id="calc-button-4">4</button></th>
-        <th><button class="calc-button btn btn-info" id="calc-button-5">5</button></th>
-        <th><button class="calc-button btn btn-info" id="calc-button-6">6</button></th>
-        <th><button class="calc-button btn btn-warning" id="calc-button-subs">-</button></th>
-    </tr>
-    <tr>
-        <th><button class="calc-button btn btn-info" id="calc-button-1">1</button></th>
-        <th><button class="calc-button btn btn-info" id="calc-button-2">2</button></th>
-        <th><button class="calc-button btn btn-info" id="calc-button-3">3</button></th>
-        <th><button class="calc-button btn btn-warning" id="calc-button-add">+</button></th>
-    </tr>
-    <tr>
-        <th><button class="calc-button btn btn-warning" id="calc-button-sig">+/-</button></th>
-        <th><button class="calc-button btn btn-info" id="calc-button-0">0</button></th>
-        <th><button class="calc-button btn btn-warning" id="calc-button-dec">,</button></th>
-        <th><button class="calc-button btn btn-warning" id="calc-button-res">=</button></th>
-    </tr>
-</table>
+<div class="calculator">
+    <div class="calculator__display">0</div>
+    <div class="calculator__keys">
+        <button class="key--operator" data-action="add">+</button>
+        <button class="key--operator" data-action="subtract">-</button>
+        <button class="key--operator" data-action="multiply">&times;</button>
+        <button class="key--operator" data-action="divide">÷</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>0</button>
+        <button data-action="decimal">.</button>
+        <button class="key--clear" data-action="clear">AC</button>
+        <button class="key--equal" data-action="calculate">=</button>
+      </div>
+  </div>
 {% endblock %}

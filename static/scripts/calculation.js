@@ -22,6 +22,14 @@ $( function() {
             }
         })
     })
+
+    $('.numbers-input').on('keydown', function() {
+        if($(this).val().length >= 0) {
+            $('.btn-calculotron').css("visibility", "visible")
+        } else {
+            $('.btn-calculotron').css("visibility", "hidden")
+        }
+    })
 });
 
 
