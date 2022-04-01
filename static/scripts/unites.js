@@ -14,51 +14,35 @@ const METRE = "metre";
 const DECIMETRE = "decimetre";
 const CENTIMETRE = "centimetre";
 const MILIMETRE = "millimetre";
-const MILLE = "mille";
-const INCH = "inch";
+const MILLE = "mile";
+const INCH = "pouce";
 const PIED = "pied";
 const YARD = "yard";
 const MILLE_MARIN = "mille_marin";
 
 // ENERGIE
-const JOULE = "joule"
-const KJ = "kilojoule"
-const CAL = "calorie"
-const KCAL = "kilocalorie"
-const WH = "watt_heure"
-const KWH = "kilowatt_heure"
-const BTU = "british_thermal_unit"
-const THM = "therm_americain"
-const FT_LB = "pied_livre"
-const EV = "electronvolt"
+const JOULE = "J"
+const KJ = "kJ"
+const CAL = "cal"
+const KCAL = "kcal"
+const WH = "W*h"
+const KWH = "kW*h"
 
 // MASSE
-const TONNE = "tonne";
-const KG = "kilogramme";
-const HG = "hectogramme";
-const GRAMME = "gramme";
-const DG = "decigramme";
-const CG = "centigramme";
-const MG = "milligramme";
-const MMG = "microgramme";
-const CARAT = "carat";
-const GRAIN = "grain";
-const OZ = "ounce";
-const LB = "pound";
-const QL = "quintal_long";
-const QC = "quintal_court";
-const TL = "tonne_longue";
-const TC = "tonne_courte";
-const STONE = "stone";
+const TONNE = "t";
+const KG = "kg";
+const GRAMME = "g";
+const MG = "mg";
+const OZ = "oz";
+const LB = "lb";
 
 // STOCKAGE
 const BIT = "bit"
-const OCTET = "octet"
-const KO = "kilooctet"
-const MO = "megaoctet"
-const GO = "gigaoctet"
-const TO = "teraoctet"
-const MIB = "mebioctet "
+const OCTET = "o"
+const KO = "ko"
+const MO = "mo"
+const GO = "go"
+const TO = "to"
 
 // TEMPERATURE
 const CELSIUS = "celsius";
@@ -66,16 +50,16 @@ const FAHRENHEIT = "fahrenheit";
 const KELVIN = "kelvin";
 
 // VITESSE
-const KMPH = "kilometre_par_heure"
-const MPS = "metre_par_seconde"
-const MPH = "mille_par_heure"
-const KNOT = "knot"
+const KMPH = "kmh"
+const MPS = "mps"
+const MPH = "mph"
+const KNOT = "noeud"
 // VOLUME
 const LITRE = "litre"
-const BBL = "baril_de_petrole"
-const M3  = "mettre_cube"
-const C3 = "centimetre_cube"
-const GALUS = "gallon_us"
+const BBL = "baril"
+const M3  = "m_cube"
+const C3 = "cm_cube"
+const GALUS = "gallon"
 
 //#endregion
 
@@ -160,7 +144,24 @@ function displayUnits(option) {
 }
 
 function convert(origin, target, quantity) {
-    console.log("Convertir " + quantity + " " + origin + " vers " + target + ".");
+    // select-type = $("#type-selector").val()
+    const myData = JSON.stringify({
+                'select-type' : $("#type-selector").val(),
+                'units-input': quantity,
+                'type-in' : origin,
+                'type-out' : target
+            })
+    $.ajax({
+        type : "POST",
+        url : '/conversion',
+        dataType: "json",
+        data: myData,
+        contentType: 'application/json;charset=UTF-8',
+        success: function (data) {
+            console.log(data)
+            $("#units-res").val(data);
+        }
+    });
 }
 
 $( function() {
@@ -174,16 +175,16 @@ $( function() {
             $('#units-res').val(this.value);
         }
         else {
-            $('#units-res').val(convert($('#base-unit').val(), $('#target-unit').val(), this.value));
+            $('#units-res').val(convert($('#base-unit').val(), $('#target-unit').val(), parseFloat(this.value)));
         }
     });
 
     $("#base-unit").on("change", function () {
-        $('#units-res').val(convert($('#base-unit').val(), $('#target-unit').val(), $("#units-input").val()));
+        $('#units-res').val(convert($('#base-unit').val(), $('#target-unit').val(), parseFloat($("#units-input").val())));
     });
 
     $("#target-unit").on("change", function () {
-        $('#units-res').val(convert($('#base-unit').val(), $('#target-unit').val(), $("#units-input").val()));
+        $('#units-res').val(convert($('#base-unit').val(), $('#target-unit').val(), parseFloat($("#units-input").val())));
     });
 
 });
