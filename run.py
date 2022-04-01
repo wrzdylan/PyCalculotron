@@ -93,7 +93,7 @@ def calculotron():
     return render_template("calculation.html", data={
         'operators': [{
             'operator': 'fibonacci',
-            'params': ['Valeur à la position donnée']
+            'params': ['Position recherchée']
         },
         {
             'operator': 'bernouilli',
