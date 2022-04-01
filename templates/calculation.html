@@ -22,12 +22,13 @@
 <div class="form-group-calculotron" id="params">
 {% for item in data["operators"] %}
     {% for param in item["params"] %}
-    <input type="text" class="form-control {{item.operator}}" placeholder="{{param}}" name="{{item.operator}}-{{param}}" >
+    <input type="text" class="form-control {{item.operator}} numbers-input
+    " placeholder="{{param}}" name="{{item.operator}}-{{param}}" >
     {% endfor %}
 {% endfor %}
 </div>
 
-<button type="submit" class="btn btn-primary btn-calculotron">Faire l'opération</button>
+<button type="submit" class="btn btn-dark btn-calculotron">Calculer</button>
 
 </form>
 
