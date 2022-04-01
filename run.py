@@ -6,6 +6,9 @@ from PyCalculotron.components.conversion.conversion_dist import conversion_dist
 from PyCalculotron.components.conversion.conversion_mass import conversion_mass
 from PyCalculotron.components.conversion.conversion_temp import conversion_temp
 from PyCalculotron.components.conversion.conversion_digit import conversion_digit
+from PyCalculotron.components.conversion.conversion_energy import conversion_energy
+from PyCalculotron.components.conversion.conversion_vit import conversion_vit
+from PyCalculotron.components.conversion.conversion_vol import conversion_vol
 
 
 app = Flask(__name__)
@@ -40,6 +43,12 @@ def conversion():
             result = conversion_dist(input, conv_type_in, conv_type_out)
         elif selected_type == "stockage":
             result = conversion_digit(input, conv_type_in, conv_type_out)
+        elif selected_type == "energie":
+            result = conversion_energy(input, conv_type_in, conv_type_out)
+        elif selected_type == "vitesse":
+            result = conversion_vit(input, conv_type_in, conv_type_out)
+        elif selected_type == "volume":
+            result = conversion_vol(input, conv_type_in, conv_type_out)
 
     return str(result)
 
