@@ -21,16 +21,12 @@ const YARD = "yard";
 const MILLE_MARIN = "mille_marin";
 
 // ENERGIE
-const JOULE = "joule"
-const KJ = "kilojoule"
-const CAL = "calorie"
-const KCAL = "kilocalorie"
-const WH = "watt_heure"
-const KWH = "kilowatt_heure"
-const BTU = "british_thermal_unit"
-const THM = "therm_americain"
-const FT_LB = "pied_livre"
-const EV = "electronvolt"
+const JOULE = "J"
+const KJ = "kJ"
+const CAL = "cal"
+const KCAL = "kcal"
+const WH = "W*h"
+const KWH = "kW*h"
 
 // MASSE
 const TONNE = "t";
@@ -54,16 +50,16 @@ const FAHRENHEIT = "fahrenheit";
 const KELVIN = "kelvin";
 
 // VITESSE
-const KMPH = "kilometre_par_heure"
-const MPS = "metre_par_seconde"
-const MPH = "mille_par_heure"
-const KNOT = "knot"
+const KMPH = "kmh"
+const MPS = "mps"
+const MPH = "mph"
+const KNOT = "noeud"
 // VOLUME
 const LITRE = "litre"
-const BBL = "baril_de_petrole"
-const M3  = "mettre_cube"
-const C3 = "centimetre_cube"
-const GALUS = "gallon_us"
+const BBL = "baril"
+const M3  = "m_cube"
+const C3 = "cm_cube"
+const GALUS = "gallon"
 
 //#endregion
 
