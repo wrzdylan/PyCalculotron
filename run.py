@@ -85,7 +85,7 @@ def calculotron():
             assert len(params) == 2 and params[0] > 0 and params[1] > 0
             experience = exp(params[0])
             bernouilli_array = bern(params[1], params[0])
-            result = {"Nombre de face": experience, "Nombre de face à chaque expérience": bernouilli_array}
+            result = {"Nombre de face": f"{experience} sur {params[0]} lancers.", f"Nombre de face à chaque expérience de {params[0]} lancers de pièces": bernouilli_array}
         elif operator == "pythagore":
             assert len(params) == 2 and params[0] > 0 and params[1] > 0
             result = {"3ème côté": pythagore(params[0], params[1])}
