@@ -1,1 +1,27 @@
 {% extends 'base.html' %}
+
+{% block header %}
+<div class="title">Calcul d'équations</div>
+{% endblock %}
+
+{% block content %}
+<table>
+    <tr>
+        <!-- <td><button class="eq-button" id="eq-button-div"><img src="{{ url_for('static', filename='images/buttons/div.png') }}" alt=""></img></button></td> -->
+        <td><button class="eq-button" id="eq-button-exp"><img src="{{ url_for('static', filename='images/buttons/exp.png') }}" alt=""></img></button></td>
+        <td><button class="eq-button" id="eq-button-rcarr"><img src="{{ url_for('static', filename='images/buttons/rcarr.png') }}" alt=""></img></button></td>
+        <!-- <td><button class="eq-button" id="eq-button-rcub"><img src="{{ url_for('static', filename='images/buttons/rcub.png') }}" alt=""></img></button></td> -->
+        <!-- <td><button class="eq-button" id="eq-button-racine"><img src="{{ url_for('static', filename='images/buttons/racine.png') }}" alt=""></img></button></td> -->
+        <!-- <td><button class="eq-button" id="eq-button-par"><img src="{{ url_for('static', filename='images/buttons/par.png') }}" alt=""></img></button></td> -->
+    </tr>
+    <tr>
+        <td colspan="6"><input class="eq-input" id="eq-input"></input></td>
+    </tr>
+    <tr>
+        <td colspan="6"><button class="eq-button" id="eq-button-calc">Calculer</button></td>
+    </tr>
+    <tr>
+        <td colspan="6"><input class="eq-input" id="eq-res"></input></td>
+    </tr>
+</table>
+{% endblock %}
