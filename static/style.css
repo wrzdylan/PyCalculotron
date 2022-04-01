@@ -191,6 +191,7 @@ input[type="checkbox"]
 
 .btn-calculotron {
   margin: 20px 0;
+  visibility: hidden;
 }
 
 .form-group-calculotron input {
@@ -198,8 +199,56 @@ input[type="checkbox"]
   width: 80%;
   margin: auto;
   margin-top: 20px;
-
 }
+
+
+.calculator {
+  width: 30%;
+  margin: auto;
+  display: grid;
+  grid-template-areas: "display"
+                       "buttons";
+  border: 1px solid grey;
+  border-radius: 20px 20px 0 0;
+}
+
+
+.calculator__display {
+  grid-area: display;
+  color: white;
+  background-color: #1f1f1f;
+  padding: 40px;
+  font-size: 200%;
+  border-radius: 10px 10px 0 0;
+}
+
+
+.calculator__keys { 
+  grid-area: buttons;
+  display: grid; 
+  grid-template-areas: ". . . ."
+                       ". . . clear"
+                       ". . . clear"
+                       ". . . clear"
+                       ". . . clear";
+}
+
+
+.key--equal {
+  grid-area: clear;
+  background-color: grey;
+}
+
+
+.calculator__keys button {
+  padding: 20px;
+  font-size: 200%;
+  margin: 5px;
+  border: 1px solid grey;
+  border-radius: 5%;
+}
+
+
 
 
 @keyframes rotate
