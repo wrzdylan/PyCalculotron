@@ -189,6 +189,7 @@ input[type="checkbox"]
 
 .btn-calculotron {
   margin: 20px 0;
+  visibility: hidden;
 }
 
 .form-group-calculotron input {
