@@ -171,7 +171,9 @@ input[type="checkbox"]
   margin: 50px;
   visibility: hidden;
 } 
-
+.units-value{
+  margin-right: 5px;
+}
 
 .form-group {
   display: flex;
