@@ -1,7 +1,7 @@
 {% extends 'base.html' %} 
 
 {% block header %}
-<h1>Théorèmes et Lois</h1>
+<h1 class="title">Théorèmes et Lois</h1>
 {% endblock %} 
 
 {% block content %}
@@ -22,7 +22,7 @@
 <div class="form-group-calculotron" id="params">
 {% for item in data["operators"] %}
     {% for param in item["params"] %}
-    <input type="text" class="form-control {{item.operator}}" placeholder="{{param}}" name="{{item.operator}}-{{param}}" >
+    <input type="text" class="form-control {{item.operator}} numbers-input" placeholder="{{param}}" name="{{item.operator}}-{{param}}" >
     {% endfor %}
 {% endfor %}
 </div>
