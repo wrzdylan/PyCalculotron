@@ -74,9 +74,9 @@ def calculotron():
             result = fibonacci(params[0])
         elif operator == "bernouilli":
             assert len(params) == 2 and params[0] > 0 and params[1] > 0
-            experience = exp(params[1])
-            bernouilli_array = bern(params[0], params[1])
-            result = {"experience": experience, "bernouilli_array": bernouilli_array}
+            experience = exp(params[0])
+            bernouilli_array = bern(params[1], params[0])
+            result = {"Nombre de face": experience, "Nombre de face à chaque expérience": bernouilli_array}
         elif operator == "pythagore":
             assert len(params) == 2 and params[0] > 0 and params[1] > 0
             result = pythagore(params[0], params[1])
@@ -88,7 +88,7 @@ def calculotron():
         },
         {
             'operator': 'bernouilli',
-            'params': ['r', 'n']
+            'params': ['Nombre de lancers de pièces', 'Nombre de fois où on répète l\'expérience']
         },
         {
             'operator': 'pythagore',
