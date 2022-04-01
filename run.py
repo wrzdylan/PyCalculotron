@@ -14,11 +14,10 @@ def home():
     )
 
 
-@app.route('/conversion')
+@app.route('/conversion', methods=["GET", "POST"])
 def conversion():
     return render_template(
-        'conversion.html',
-        data={}
+        'conversion.html'
     )
 
 
