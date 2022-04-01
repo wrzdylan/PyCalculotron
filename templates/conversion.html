@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<div class="title">Calculatrice de conversion des unités</div>
+<h1 class="title">Calculatrice de conversion des unités</h1>
 {% endblock %}
 
 {% block content %}
@@ -20,20 +20,17 @@
             <option value="vitesse">Vitesse</option>
             <option value="volume">Volume</option>
           </select>
-
-        </div>
-
-
-        <div id="units-panel" class="">
-            <div id="units-origin" class="d-flex justify-content-center">
-                <input class="units-value input-group-text" id="units-input" />
-                <select class="units-selector input-group-text" id="base-unit"></select>
-            </div>
-            <p>=</p>
-            <div id="units-target" class="d-flex justify-content-center">
-                <input class="units-value input-group-text" id="units-res" disabled/>
-                <select class="units-selector input-group-text" id="target-unit"></select>
-            </div>
+          <div id="units-panel">
+              <div id="units-origin">
+                  <input class="units-value numbers-input" id="units-input" />
+                  <select class="units-selector" id="base-unit"></select>
+              </div>
+          </div>
+          <p>=</p>
+          <div id="units-target" class="d-flex justify-content-center">
+              <input class="units-value input-group-text" id="units-res" disabled/>
+              <select class="units-selector input-group-text" id="target-unit"></select>
+          </div>
         </div>
     </form>
 {% endblock %}

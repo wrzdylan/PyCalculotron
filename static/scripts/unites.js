@@ -169,8 +169,11 @@ $( function() {
         displayUnits($("#type-selector").val())    
     });
 
-    $("#units-input").on("keyup", function(e) {
+    $(".numbers-input").on("keyup", function(e) {
         this.value = this.value.replace(/[^0-9\.]/g,'');
+    });
+
+    $("#units-input").on("keyup", function(e) {
         if($('#base-unit').val() == $('#target-unit').val()) {
             $('#units-res').val(this.value);
         }

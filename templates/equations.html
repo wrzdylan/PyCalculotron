@@ -1,27 +1,41 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<div class="title">Calcul d'équations</div>
+<h1 class="title">Calcul d'équations</h1>
 {% endblock %}
 
 {% block content %}
-<table>
-    <tr>
-        <!-- <td><button class="eq-button" id="eq-button-div"><img src="{{ url_for('static', filename='images/buttons/div.png') }}" alt=""></img></button></td> -->
-        <td><button class="eq-button" id="eq-button-exp"><img src="{{ url_for('static', filename='images/buttons/exp.png') }}" alt=""></img></button></td>
-        <td><button class="eq-button" id="eq-button-rcarr"><img src="{{ url_for('static', filename='images/buttons/rcarr.png') }}" alt=""></img></button></td>
-        <!-- <td><button class="eq-button" id="eq-button-rcub"><img src="{{ url_for('static', filename='images/buttons/rcub.png') }}" alt=""></img></button></td> -->
-        <!-- <td><button class="eq-button" id="eq-button-racine"><img src="{{ url_for('static', filename='images/buttons/racine.png') }}" alt=""></img></button></td> -->
-        <!-- <td><button class="eq-button" id="eq-button-par"><img src="{{ url_for('static', filename='images/buttons/par.png') }}" alt=""></img></button></td> -->
-    </tr>
-    <tr>
-        <td colspan="6"><input class="eq-input" id="eq-input"></input></td>
-    </tr>
-    <tr>
-        <td colspan="6"><button class="eq-button" id="eq-button-calc">Calculer</button></td>
-    </tr>
-    <tr>
-        <td colspan="6"><input class="eq-input" id="eq-res"></input></td>
-    </tr>
-</table>
+<div class="content" id="equations">
+    <table id="eq-container">
+        <tr>
+            <td colspan="6"><input class="eq-input input-group-text" id="eq-input" placeholder="Equation"></input></td>
+        </tr>
+        <tr>
+            <!-- <td><button class="eq-button" id="eq-button-div"><img src="{{ url_for('static', filename='images/buttons/div.png') }}" alt=""></img></button></td> -->
+            <td><button class="eq-button" id="eq-button-exp"><img src="{{ url_for('static', filename='images/buttons/exp.png') }}" alt=""></img></button></td>
+            <td><button class="eq-button" id="eq-button-rcarr"><img src="{{ url_for('static', filename='images/buttons/rcarr.png') }}" alt=""></img></button></td>
+            <!-- <td><button class="eq-button" id="eq-button-rcub"><img src="{{ url_for('static', filename='images/buttons/rcub.png') }}" alt=""></img></button></td> -->
+            <!-- <td><button class="eq-button" id="eq-button-racine"><img src="{{ url_for('static', filename='images/buttons/racine.png') }}" alt=""></img></button></td> -->
+            <!-- <td><button class="eq-button" id="eq-button-par"><img src="{{ url_for('static', filename='images/buttons/par.png') }}" alt=""></img></button></td> -->
+        </tr>
+        <tr>
+            <td colspan="6"><button class="btn btn-dark" id="eq-button-calc">Calculer</button></td>
+        </tr>
+        <tr>
+            <td colspan="6"><input class="eq-input input-group-text" id="eq-res" placeholder="Résultat" disabled></input></td>
+        </tr>
+    </table>
+    <label for="eq-container" id="eq-label">
+        <p class="inf-title">Indications :</p>
+        <p class="inf-text">Veuillez saisir votre equation dans le champ de text prevu à tel effet</p>
+        <p class="inf-text">Pour les racines carrées et les exposants, vous pouvez utiliser les boutons au-dessous</p>
+        <p class="inf-text">Puis, cliquez sur le bouton "Calculer" afin d'afficher le résultat</p>
+        <p class="inf-text">Attention :</p>
+        <ol>
+            <li><p class="inf-text">L'exposant et la racine seront affichés en notation pythonique</p></li>
+            <li><p class="inf-text">La variable à calculer doit être toujours "x"</p></li>
+            <li><p class="inf-text">Veuillez respecter la présence d'une et uniquement une égalité</p></li>
+        </ol>
+    </label>
+</div>
 {% endblock %}
