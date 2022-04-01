@@ -7,9 +7,7 @@
 {% block content %}
     <form class="calc-form d-flex justify-content-center flex-column" >
         <label for="type-selector" class="form-label text-success"><h2> Sélectionnez le type d'unités à convertir </h2></label>
-
         <div class="input-group d-flex justify-content-center">
-
           <select class="input-group-text" id="type-selector">
             <option value="null" disabled selected hidden> Options </option>
             <option value="distance">Distance</option>
@@ -20,17 +18,17 @@
             <option value="vitesse">Vitesse</option>
             <option value="volume">Volume</option>
           </select>
-          <div id="units-panel">
-              <div id="units-origin">
-                  <input class="units-value numbers-input" id="units-input" />
-                  <select class="units-selector" id="base-unit"></select>
-              </div>
-          </div>
-          <p>=</p>
-          <div id="units-target" class="d-flex justify-content-center">
-              <input class="units-value input-group-text" id="units-res" disabled/>
-              <select class="units-selector input-group-text" id="target-unit"></select>
-          </div>
+        </div>
+        <div id="units-panel" class="">
+            <div id="units-origin" class="d-flex justify-content-center">
+                <input class="units-value input-group-text numbers-input" id="units-input" />
+                <select class="units-selector input-group-text" id="base-unit"></select>
+            </div>
+            <p>=</p>
+            <div id="units-target" class="d-flex justify-content-center">
+                <input class="units-value input-group-text" id="units-res" disabled/>
+                <select class="units-selector input-group-text" id="target-unit"></select>
+            </div>
         </div>
     </form>
 {% endblock %}
